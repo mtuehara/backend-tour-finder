@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from tours import views as tour_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^api/tours/$', tour_views.tour_list),
+    url(r'^api/tours/(?P<tour_pk>[0-9]+)$', tour_views.tour_detail),
 ]
