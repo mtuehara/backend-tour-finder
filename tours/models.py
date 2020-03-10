@@ -7,6 +7,10 @@ class Tour(models.Model):
    full = models.BooleanField("Lotado", default=False)
    city = models.CharField("Cidade", max_length=50)
    vacancy = models.PositiveIntegerField("Vagas")
-   sold = models.PositiveIntegerField("Vendidos")
-   tour_type = models.CharField("Tipo", max_length=50)
+   available = models.PositiveIntegerField("Disponíveis")
+   TOUR_TYPES = (
+    ("Natureza", "Natureza"),
+    ("Cultural", "Cultural"),
+    ("Aventura", "Aventura"))
+   tour_type = models.CharField("Tipo", max_length=50, choices=TOUR_TYPES)
    meeting_point = models.CharField("Ponto de encontro", max_length=50)
