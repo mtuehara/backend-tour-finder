@@ -7,10 +7,22 @@ from .serializers import *
 from django.shortcuts import render
 # Create your views here.
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def tour_list(request):
     if request.method == 'GET':
         tour = Tour.objects.all()
+        serializer = TourSerializer(tour, context ={'request': request}, many = True)
+        return Response({
+            'data': serializer.data
+        })
+
+@api_view(['GET', 'POST'])
+def tour_query(request):
+    if request.method == 'GET':
+        city = request.data.city
+        tour_type = request.data.tour_type
+        date = request.data.date
+        tour = Tour.objects.filter(date).filter(city).filter(tour_type)
         serializer = TourSerializer(tour, context ={'request': request}, many = True)
 
         return Response({
