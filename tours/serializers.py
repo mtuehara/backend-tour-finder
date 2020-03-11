@@ -4,5 +4,5 @@ from .models import Tour
 class TourSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tour
-        fields = ('pk', 'name', 'date', 'full', 'city', 'vacancy', 'available', 'tour_type', 'meeting_point')
+        fields = ('pk', 'name', 'date', 'full', 'city', 'capacity', 'available', 'tour_type', 'meeting_point')
         
