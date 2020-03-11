@@ -128,8 +128,10 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:3006',
+    'http://localhost:3012',
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:3006',
+    'http://localhost:3012',
 ]

@@ -6,7 +6,7 @@ class Tour(models.Model):
    date = models.DateField("Data")
    full = models.BooleanField("Lotado", default=False)
    city = models.CharField("Cidade", max_length=50)
-   vacancy = models.PositiveIntegerField("Vagas")
+   capacity = models.PositiveIntegerField("Capacidade")
    available = models.PositiveIntegerField("Disponíveis")
    TOUR_TYPES = (
     ("Natureza", "Natureza"),

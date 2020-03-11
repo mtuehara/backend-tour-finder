@@ -19,7 +19,9 @@ def tour_list(request):
 @api_view(['GET', 'POST'])
 def tour_query(request):
     if request.method == 'GET':
-        tour = Tour.objects.filter(**request.data).filter(full=False)#.filter(city).filter(tour_type)
+        data = request.data
+        requested_quantity = data.pop('quantity')
+        tour = Tour.objects.filter(**data).filter(full=False).filter(available__gte=requested_quantity)
         serializer = TourSerializer(tour, context ={'request': request}, many = True)
 
         return Response({
